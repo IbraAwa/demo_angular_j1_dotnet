@@ -1,0 +1,20 @@
+<h2>{{ productName }}</h2>
+<img [src]="imageUrl" alt="Photo du produit" />
+
+<p>Stock : {{ stock() }}</p>
+<button (click)="restock(1)">+1</button>
+<button (click)="restock(10)">+10</button>
+<button [disabled]="stock() === 0">Commander</button>
+<p [class.epuise]="stock() === 0">Disponibilité</p>
+<div class="barre" [style.width.%]="stock() * 10"></div>
+
+<input type="number" [(ngModel)]="quantity" />
+<p>Total : {{ quantity() * 49.9 }}</p>
+
+<input (keyup.enter)="onKey($event)" placeholder="Tapez puis Entrée" />
+
+<hr />
+<button (click)="startWrong()">Compteur propriété</button>
+<p>Propriété simple : {{ secondsWrong }}</p>
+<button (click)="startRight()">Compteur signal</button>
+<p>Signal : {{ secondsRight() }}</p>
