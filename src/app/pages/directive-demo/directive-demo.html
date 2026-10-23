@@ -1,0 +1,37 @@
+@let estBas = stock() <= 3;
+
+<p>directive-demo works!</p>
+
+<button (click)="Destock(1)">Retirer du stock</button>
+
+@if(estBas) {
+  <p>Votre stock est bas</p>
+}
+
+@switch(stock()) {
+  @case(10) { <p>Votre stock est au maximum</p>}
+  @case(5) { <p>Vous êtes à la moitié de votre stock</p>}
+  @default { <p>votre stock est  {{stock()}} </p>}
+}
+
+<!-- Les nom de colonne dans TH-->
+ <!--Que vous utilisez un @for-->
+ <!--qui va puisez dans un tableau-->
+  <!--qui comporte les nom de colonnes-->
+<table border="3">
+  <thead>
+    <tr>
+      <th>Numéro de produit</th>
+      <th>Nom produit</th>
+    </tr>
+  </thead>
+  <tbody>
+@for(produit of produits(); track produit; let i = $index) {
+    <tr>
+      <td>{{i + 1}}</td>
+      <td>{{produit}}</td>
+    </tr>
+}
+  </tbody>
+</table>
+
