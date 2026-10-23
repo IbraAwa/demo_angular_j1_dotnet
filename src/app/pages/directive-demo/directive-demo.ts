@@ -1,7 +1,8 @@
 import { Component, signal } from '@angular/core';
+import { DirectiveBonus } from '../../exercices/directive-exo/directive-bonus/directive-bonus';
 
 @Component({
-  imports: [],
+  imports: [DirectiveBonus],
   selector: 'app-directive-demo',
   styleUrl: './directive-demo.scss',
   templateUrl: './directive-demo.html',

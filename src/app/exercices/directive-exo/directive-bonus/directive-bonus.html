@@ -1,1 +1,12 @@
 <p>directive-bonus works!</p>
+
+
+<table border="2">
+  <thead>
+    <tr>
+      @for(nameColonne of nameColonnes(); track nameColonne) {
+        <th>{{nameColonne}}</th>
+      }
+    </tr>
+  </thead>
+</table>

@@ -8,6 +8,14 @@ import { Tache } from './Tache';
   templateUrl: './directive-bonus.html',
 })
 export class DirectiveBonus {
+
+    nameColonnes = signal<string[]> ([
+      "id",
+      "titre",
+      "terminer",
+      "priorite"
+    ])
+
     taches = signal<Tache[]>([
     { id: 1, titre: 'Installer Angular CLI', done: true, priorite: 'haute' },
     { id: 2, titre: 'Lire la doc du control flow', done: false, priorite: 'moyenne' },
