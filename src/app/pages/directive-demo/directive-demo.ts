@@ -8,12 +8,8 @@ import { Component, signal } from '@angular/core';
 })
 export class DirectiveDemo {
   // nouveau tableau nameColonnes
-  produits = signal<string[]>([
-    "pomme",
-    "poire",
-    "banane",
-    "Kiwi"
-  ])
+  produits = signal<string[]>(["pomme", "poire", "banane","Kiwi"])
+  // INDEX                        0        1        2        3
   stock = signal<number>(10)
 
   Destock(count : number) {
