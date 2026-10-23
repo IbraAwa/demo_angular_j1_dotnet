@@ -17,13 +17,14 @@
 <!-- Les nom de colonne dans TH-->
  <!--Que vous utilisez un @for-->
  <!--qui va puisez dans un tableau-->
-  <!--qui comporte les nom de colonnes-->
+  <!--qui comporte les nom de colonnes-->g
 <table border="3">
   <thead>
-    <tr>
-      <th>Numéro de produit</th>
-      <th>Nom produit</th>
-    </tr>
+    <tr>    <!--Permet d'avoir une ligne-->
+  @for(nameColonne of nameColonnes(); track nameColonne) {
+      <th>{{nameColonne}}</th>
+  }
+  </tr>
   </thead>
   <tbody>
 @for(produit of produits(); track produit; let i = $index) {
