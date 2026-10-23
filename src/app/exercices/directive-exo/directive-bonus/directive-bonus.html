@@ -1,12 +1,43 @@
-<p>directive-bonus works!</p>
-
-
-<table border="2">
+<table class="table-taches">
   <thead>
     <tr>
-      @for(nameColonne of nameColonnes(); track nameColonne) {
-        <th>{{nameColonne}}</th>
+      @for (nameColonne of nameColonnes(); track $index) {
+        <th>{{ nameColonne }}</th>
       }
     </tr>
   </thead>
+  <tbody>
+    @for (tache of taches(); track tache.id; let i = $index) {
+      <tr>
+        <td>{{ i + 1 }}</td>
+        <td>{{ tache.titre }}</td>
+        <td>{{ tache.done}}</td>
+        <td>{{ tache.priorite }}</td>
+        <td>
+          <button type="button" (click)="Termine(tache)" [disabled]="tache.done">
+            Terminer la tâche
+          </button>
+        </td>
+        <td>
+          @switch (tache.priorite) {
+            @case ('haute') { URGENT }
+            @case ('moyenne') { SEMI-URGENT }
+            @case ('basse') { Tranquillou }
+            @default { Pas de priorité définie pour cette tâche }
+          }
+        </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td [attr.colspan]="nameColonnes().length">Pas de tâche en cours</td>
+      </tr>
+    }
+  </tbody>
 </table>
+
+
+@if (EstToutTerminer()) {
+  <p>Toutes les tâches sont faites.</p>
+} @else {
+  <p>Il y a encore des choses à faire.</p>
+}
