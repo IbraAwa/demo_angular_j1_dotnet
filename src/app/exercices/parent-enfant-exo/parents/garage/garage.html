@@ -1,0 +1,29 @@
+
+<!-- Afficher mon enfant via son selecteur-->
+<!-- DANS LE CAS DE INPUT/OUTPUT donc de PARENT/ENFANT-->
+<!--Crocher [] j'envoie une valeur a mon enfant qui est dynamique-->
+<!--Crocher [] envoie a lenfant-->
+<!--Crocher [] peut recevoir une valuer dynamique-->
+<!--<app-voiture-item [voiture]="voitures()[3]"/>-->
+
+<section class="garage">
+@for (voiture of voitures(); track $index) {
+  <app-voiture-item [voiture]="voiture" (voitureCommander)="ajouterCommande($event)" />
+}
+</section>
+
+<h1>la voiture commander</h1>
+<h3>{{voitureCommander()?.marque}}</h3>
+@if (voitureCommander()?.isLuxe === true && voitureCommander()?.isLuxe !== undefined){
+  <p>Luxueux</p>
+} @else {
+  <p>Standar</p>
+}
+
+<!-- SUITE : le compteur -->
+<!-- [( )] = la banane dans la boîte : j'envoie la quantité de base ET je reçois la nouvelle valeur -->
+<!-- à gauche "quantite" = le model() de l'enfant / à droite "quantite" = le signal du garage (sans parenthèses !) -->
+@if (voitureCommander(); as voiture) {
+  <app-compteur [(quantite)]="quantite" />
+  <p>Vous commandez {{ quantite() }} x {{ voiture.marque }} {{ voiture.nom }}</p>
+}

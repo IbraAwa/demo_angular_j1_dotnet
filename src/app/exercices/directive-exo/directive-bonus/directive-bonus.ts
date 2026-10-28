@@ -28,7 +28,7 @@ export class DirectiveBonus {
   ]);
 
   // méthode qui va lire dans le tableau taches
-  // et savoir si toute les tâches sont faite ou non
+  // et savoir si toutes les tâches sont faites ou non
   // SI oui => TRUE
   // SI non => FALSE
   EstToutTerminer() : boolean {

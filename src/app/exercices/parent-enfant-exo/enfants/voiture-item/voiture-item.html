@@ -1,0 +1,10 @@
+<article>
+  <h3>{{voiture().marque}}</h3>
+  <p>{{voiture().nom}}</p>
+  <p>Réservoir : {{voiture().litreEssenceMaxilum}} L</p>
+
+  <span [class.luxe]="voiture().isLuxe" [class.standard]="!voiture().isLuxe">
+    {{voiture().isLuxe ? "Luxe" : "Standard"}}
+  </span>
+  <button class="btn" (click)="Commander(voiture())">Commander</button>
+</article>

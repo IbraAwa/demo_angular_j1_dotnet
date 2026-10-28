@@ -1,0 +1,87 @@
+/* Style de la carte principale */
+article {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 320px;
+  min-width: 320px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin: 15px;
+}
+
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Marque */
+article h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Nom et Réservoir */
+article p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+article p:first-of-type {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Style de base pour les badges */
+article span {
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ASTUCE POUR LE BADGE EN FONCTION DU TEXTE :
+   En utilisant :has(), la couleur s'adapte automatiquement au contenu du span */
+
+/* Badge Luxe */
+article span:has(:nth-child(1)), /* fallback */
+article:has(span:contains("Luxe")) span,
+article span {
+  /* Style par défaut ou Standard */
+  background-color: #e2e8f0;
+  color: #475569;
+}
+
+/* Style spécifique si vous ajoutez une classe ou avec ngClass/class binding dans Angular/Vue :
+   Exemple HTML recommandé : <span [class.luxe]="voiture().isLuxe" [class.standard]="!voiture().isLuxe">
+*/
+
+.badge-luxe,
+article span.luxe {
+  background: linear-gradient(135deg, #d4af37, #f3e5ab);
+  color: #3d2b00;
+  box-shadow: 0 2px 6px rgba(212, 175, 55, 0.3);
+}
+
+.badge-standard,
+article span.standard {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}

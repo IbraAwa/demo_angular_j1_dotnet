@@ -11,16 +11,16 @@ import { computed, Directive, input, signal } from "@angular/core";
 })
 
 //objectif
-// quand je passe ma souris sur le bouton il a une couleur choisi dans hoverColor
-// quand je ne suis plus dessus i la une couleur de base choisis par la directive direct couleur
+// quand je passe ma souris sur le bouton il a une couleur choisie dans hoverColor
+// quand je ne suis plus dessus il a une couleur de base choisie par la directive direct (couleur)
 
 export class ColorButton {
   hovered = signal(false)
-  // VARIABLE AVEC INPUT SONT INITIALISER/AFFECTER
-  // DANS la balise qui utilise la directive avec son selecteur  appColorButton
+  // LES VARIABLES AVEC INPUT SONT INITIALISÉES/AFFECTÉES
+  // DANS la balise qui utilise la directive avec son sélecteur appColorButton
   couleur = input("green" , {alias : "appColorButton"}) // appColorButton="red"
   // couleur = "red"
-  // VARIABLE AVEC INPUT EST INITIALISER/AFFECTER
+  // UNE VARIABLE AVEC INPUT EST INITIALISÉE/AFFECTÉE
   // DANS LA BALISE AVEC SON NOM DE VARIABLE = VALUE
   hoverColor = input('') // BLACK
   color = computed(() => this.hovered() ? this.hoverColor() : this.couleur())

@@ -29,5 +29,9 @@ export const routes: Routes = [
   {
     path: 'restaurant',
     loadComponent: () => import('./pages/parent-enfant-demo/Parents/restaurant/restaurant').then((m) => m.Restaurant)
+  },
+  {
+    path: 'garage',
+    loadComponent: () => import('./exercices/parent-enfant-exo/parents/garage/garage').then((m) => m.Garage)
   }
 ];

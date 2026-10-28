@@ -10,7 +10,12 @@
 <section>
   <h1>les plats commandés</h1>
 @for (commande of commandes(); track $index) {
-  <h3>{{commande.nom}}</h3>
-  <p>{{commande.prix}} €</p>
+  <h3>{{commande.plat.nom}}</h3>
+  <p>{{commande.plat.prix}} €</p>
+  <!--Sans composant enfant-->
+  <!--<p>Quantité {{commande.quantite()}}</p>-->
+  <app-compteur [(quantite)]="commande.quantite"/>
 }
+
+<h3>Total : {{total()}}</h3>
 </section>
