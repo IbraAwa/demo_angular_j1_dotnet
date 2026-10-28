@@ -1,0 +1,9 @@
+<article class="wrapper-plat">
+  <h3>{{plat().nom}}</h3>
+  <p class="description">{{plat().description}}</p>
+  <p class="prix">{{plat().prix}}</p>
+  <span [className]="plat().vegetarien ? 'vegetarien' : 'nonvegetarien'">
+    {{plat().vegetarien ? "végétarien"  : "non végétarien"}}
+  </span>
+  <button class="btn" (click)="AjouterACommande(plat())">Commander</button>
+</article>

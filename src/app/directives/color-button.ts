@@ -1,11 +1,11 @@
-import { Directive, input, signal } from "@angular/core";
+import { computed, Directive, input, signal } from "@angular/core";
 
 @Directive({
-  selector: '[appColorButton]',
+  selector: 'button[appColorButton], a[appColorButton]',
   host: {
     '(mouseenter)' : 'hovered.set(true)',
     '(mouseleave)' : 'hovered.set(false)',
-    '[style.backgroundColor]' : 'couleur()',
+    '[style.backgroundColor]' : 'color()', // backgroundColor : red
     '[style.color]' : "'white'"
   }
 })
@@ -16,7 +16,14 @@ import { Directive, input, signal } from "@angular/core";
 
 export class ColorButton {
   hovered = signal(false)
-  couleur = input("green" , {alias : "appColorButton"})
-  //hoverColor = input('')
-  // computed
+  // VARIABLE AVEC INPUT SONT INITIALISER/AFFECTER
+  // DANS la balise qui utilise la directive avec son selecteur  appColorButton
+  couleur = input("green" , {alias : "appColorButton"}) // appColorButton="red"
+  // couleur = "red"
+  // VARIABLE AVEC INPUT EST INITIALISER/AFFECTER
+  // DANS LA BALISE AVEC SON NOM DE VARIABLE = VALUE
+  hoverColor = input('') // BLACK
+  color = computed(() => this.hovered() ? this.hoverColor() : this.couleur())
+
+  stockDirective = input<string>("0")
 }

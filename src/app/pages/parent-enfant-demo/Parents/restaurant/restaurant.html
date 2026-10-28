@@ -1,0 +1,16 @@
+
+
+<section class="carte">
+@for (menuItem of carte(); track $index) {
+  <app-menu-item [plat]="menuItem" (platAjouter)="AjouterCommande($event)" />
+}
+</section>
+<br/>
+
+<section>
+  <h1>les plats commandés</h1>
+@for (commande of commandes(); track $index) {
+  <h3>{{commande.nom}}</h3>
+  <p>{{commande.prix}} €</p>
+}
+</section>

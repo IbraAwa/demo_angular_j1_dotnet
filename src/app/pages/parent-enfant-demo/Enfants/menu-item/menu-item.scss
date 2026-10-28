@@ -1,0 +1,35 @@
+.wrapper-plat {
+  max-width: 350px;
+  padding: 20px;
+  margin: 16px 0;
+  background-color: wheat;
+  border: 1px solid whitesmoke;
+  border-radius: 12px;
+}
+
+.wrapper-plat:hover{
+  box-shadow: 0 11px 16px gray
+}
+
+.vegetarien {
+  padding: 5px;
+  border-radius: 12px;
+  background-color: green;
+  color: white;
+}
+
+.nonvegetarien {
+  padding: 5px;
+  border-radius: 12px;
+  background-color: red;
+  color: white;
+}
+
+
+
+.btn {
+  padding: 5px;
+  background-color: black;
+  border-radius: 12px;
+  color: white;
+}

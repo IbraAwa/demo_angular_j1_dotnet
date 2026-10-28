@@ -25,5 +25,9 @@ export const routes: Routes = [
   {
     path: 'directives',
     loadComponent: () => import('./pages/directive-demo/directive-demo').then((m) => m.DirectiveDemo)
+  },
+  {
+    path: 'restaurant',
+    loadComponent: () => import('./pages/parent-enfant-demo/Parents/restaurant/restaurant').then((m) => m.Restaurant)
   }
 ];
