@@ -6,6 +6,9 @@ import { Component, computed, signal } from '@angular/core';
   styleUrl: './computed-demo.scss',
   templateUrl: './computed-demo.html',
 })
+
+// un computed à des valeur calculé
+// mais qui ne peut être changer a la main via un set ou un update
 export class ComputedDemo {
   prix = signal<number>(10)
   quantite = signal<number>(1)

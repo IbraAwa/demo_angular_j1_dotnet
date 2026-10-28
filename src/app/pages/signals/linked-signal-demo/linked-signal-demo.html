@@ -1,0 +1,11 @@
+<h1>Catégorie : {{categorie()}}</h1>
+<button (click)="changerCategorieEnFruit()">Fruits</button>
+<button (click)="changerCategorieEnLegume()">Légumes</button>
+
+
+<h3>Choisis un produit</h3>
+@for (produit of produits(); track $index) {
+  <button (click)="choisirProduit(produit)">{{produit}}</button>
+}
+
+<h4>CHOIX : {{choix()}}</h4>

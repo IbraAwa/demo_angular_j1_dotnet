@@ -41,5 +41,9 @@ export const routes: Routes = [
   {
     path: 'signal-computed',
     loadComponent: () => import('./pages/signals/computed-demo/computed-demo').then((m) => m.ComputedDemo)
+  },
+  {
+    path: 'linkedSignal',
+    loadComponent: () => import('./pages/signals/linked-signal-demo/linked-signal-demo').then((m) => m.LinkedSignalDemo)
   }
 ];
