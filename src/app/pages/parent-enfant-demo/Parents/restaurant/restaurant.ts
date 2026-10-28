@@ -28,7 +28,7 @@ export class Restaurant {
   carte = signal<Plat[]>(LISTE_PLATS)
   commandes = signal<LigneCommande[]>([])
 
-  //computed s'abonne/dépend d'un signal
+  // computed s'abonne/dépend d'un signal
   // dans notre cas : computed dépend du signal commandes
   total = computed(() =>
     this.commandes().reduce((somme, ligneCommande) => somme + ligneCommande.plat.prix * ligneCommande.quantite(), 0))
@@ -47,9 +47,10 @@ export class Restaurant {
     this.commandes.update(list => [...list, LigneCommande])
   }
 
-  // this.commande.update on crée une nouvelle liste donc une nouvelle référence avec les ancienne
-  // ancienne commande + la nouvelle commande
-  // le signal vu qu'il recoit une nouvelle référence envoie l'information a tout le monde
+  // this.commandes.update : on crée une nouvelle liste donc une nouvelle référence avec les anciennes
+  // anciennes commandes + la nouvelle commande
+  // le signal, vu qu'il reçoit une nouvelle référence, envoie l'information à tout le monde
   // mon computed qui est abonné/dépend grâce au this.commandes() à l'intérieur
-  // réagit car le signal donne l'information et refait un nouveau calcule du total
+  // réagit car le signal donne l'information, et refait un nouveau calcul du total
+  // (il est AUSSI abonné à chaque ligneCommande.quantite() : quand le compteur change, le total se recalcule)
 }

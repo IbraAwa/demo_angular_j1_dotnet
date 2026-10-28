@@ -1,2 +1,10 @@
 <h2>Page A</h2>
-<router-outlet />
+<p class="intro">
+  Ouvre la console (F12) : <code>ngOnInit</code> / <code>ngOnDestroy</code> s'affichent quand tu changes de page.
+  Clique sur « Page A - détail » : la sous-page s'affiche dans le cadre en pointillés, la page A reste en vie.
+</p>
+
+<!-- le cadre en pointillés = le "trou" de la page A, là où s'affichent ses routes enfants -->
+<div class="zone-enfant">
+  <router-outlet />
+</div>

@@ -1,1 +1,45 @@
-nav { display: flex; flex-direction: column; gap: 8px; }
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 20px 12px;
+  position: sticky;
+  top: 0;
+}
+
+.titre-section {
+  margin: 16px 0 6px 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+a {
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+
+  &:hover {
+    background: var(--bg);
+  }
+}
+
+.sous-lien {
+  padding-left: 24px;
+  font-size: 0.9rem;
+}
+
+/* la classe ajoutée par routerLinkActive */
+.actif {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+}

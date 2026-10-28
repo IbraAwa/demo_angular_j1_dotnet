@@ -1,6 +1,15 @@
-<p>{{ message | uppercase }}</p>
-<p>{{ today | date: 'dd/MM/yyyy' }}</p>
-<p>{{ price | currency: 'EUR' }}</p>
+<h2>Pipes</h2>
+<p class="intro">Un pipe transforme une valeur juste pour l'affichage : <code>valeur | nomDuPipe : paramètre</code>.</p>
 
-<p>{{ 21 | toFahrenheit }}</p>
-<p>{{ 21 | toFahrenheit: 2 }}</p>
+<table>
+  <thead>
+    <tr><th>Code</th><th>Résultat</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>message | uppercase</code></td><td>{{ message | uppercase }}</td></tr>
+    <tr><td><code>today | date: 'dd/MM/yyyy'</code></td><td>{{ today | date: 'dd/MM/yyyy' }}</td></tr>
+    <tr><td><code>price | currency: 'EUR'</code></td><td>{{ price | currency: 'EUR' }}</td></tr>
+    <tr><td><code>21 | toFahrenheit</code></td><td>{{ 21 | toFahrenheit }}</td></tr>
+    <tr><td><code>21 | toFahrenheit: 2</code></td><td>{{ 21 | toFahrenheit: 2 }}</td></tr>
+  </tbody>
+</table>

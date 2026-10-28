@@ -11,8 +11,8 @@ import { computed, Directive, input, signal } from "@angular/core";
 })
 
 //objectif
-// quand je passe ma souris sur le bouton il a une couleur choisie dans hoverColor
-// quand je ne suis plus dessus il a une couleur de base choisie par la directive direct (couleur)
+// quand je passe ma souris sur le bouton, il a une couleur choisie dans hoverColor
+// quand je ne suis plus dessus, il a une couleur de base choisie directement via la directive (couleur)
 
 export class ColorButton {
   hovered = signal(false)

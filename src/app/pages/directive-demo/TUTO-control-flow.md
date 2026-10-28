@@ -127,7 +127,7 @@ On peut aussi ajouter un `@else` (on le voit dans l'exercice `directive-bonus`) 
 @switch(stock()) {
   @case(10) { <p>Votre stock est au maximum</p>}
   @case(5) { <p>Vous êtes à la moitié de votre stock</p>}
-  @default { <p>votre stock est  {{stock()}} </p>}
+  @default { <p>Votre stock est de {{stock()}}</p>}
 }
 ```
 
@@ -139,7 +139,7 @@ Décortiquons :
 - `@case(5)` ➜ « si c'est **exactement** 5 ➜ affiche ça »
 - `@default` ➜ « dans **tous les autres cas** ➜ affiche ça ». Ici on affiche le nombre avec `{{stock()}}`.
 
-**Seul UN bloc s'affiche à la fois.** Clique et regarde : 10 ➜ « au maximum », 9 ➜ « votre stock est 9 », …, 5 ➜ « à la moitié », etc.
+**Seul UN bloc s'affiche à la fois.** Clique et regarde : 10 ➜ « au maximum », 9 ➜ « Votre stock est de 9 », …, 5 ➜ « à la moitié », etc.
 
 ---
 

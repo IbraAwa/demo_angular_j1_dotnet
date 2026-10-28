@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'page-a', pathMatch: 'full' },
+
+  // ----- LES BASES -----
   {
     path: 'page-a',
     loadChildren: () =>
@@ -30,20 +32,48 @@ export const routes: Routes = [
     path: 'restaurant',
     loadComponent: () => import('./pages/parent-enfant-demo/Parents/restaurant/restaurant').then((m) => m.Restaurant)
   },
+
+  // ----- LES SIGNALS -----
+  // une route parent SANS composant : elle sert juste à regrouper ses enfants sous /signals/...
+  // pas besoin de <router-outlet /> en plus : les enfants s'affichent direct dans celui de app.html
   {
-    path: 'garage',
-    loadComponent: () => import('./exercices/parent-enfant-exo/parents/garage/garage').then((m) => m.Garage)
+    path: 'signals',
+    children: [
+      // /signals tout court => on redirige vers le premier enfant
+      { path: '', redirectTo: 'signal', pathMatch: 'full' },
+      {
+        path: 'signal', // => /signals/signal
+        loadComponent: () => import('./pages/signals/signal-demo/signal-demo').then((m) => m.SignalDemo),
+      },
+      {
+        path: 'computed', // => /signals/computed
+        loadComponent: () => import('./pages/signals/computed-demo/computed-demo').then((m) => m.ComputedDemo)
+      },
+      {
+        path: 'linked-signal', // => /signals/linked-signal
+        loadComponent: () => import('./pages/signals/linked-signal-demo/linked-signal-demo').then((m) => m.LinkedSignalDemo)
+      },
+    ]
   },
+
+  // ----- LES EXERCICES -----
+  // même principe : tous les exos sont rangés sous /exo/...
   {
-    path: 'signal',
-    loadComponent: () => import('./pages/signals/signal-demo/signal-demo').then((m) => m.SignalDemo),
+    path: 'exo',
+    children: [
+      { path: '', redirectTo: 'directive', pathMatch: 'full' },
+      {
+        path: 'directive', // => /exo/directive (liste de tâches avec @for / @if / @switch)
+        loadComponent: () => import('./exercices/directive-exo/directive-bonus/directive-bonus').then((m) => m.DirectiveBonus)
+      },
+      {
+        path: 'garage', // => /exo/garage (parent / enfant : input, output, model)
+        loadComponent: () => import('./exercices/parent-enfant-exo/parents/garage/garage').then((m) => m.Garage)
+      },
+    ]
   },
-  {
-    path: 'signal-computed',
-    loadComponent: () => import('./pages/signals/computed-demo/computed-demo').then((m) => m.ComputedDemo)
-  },
-  {
-    path: 'linkedSignal',
-    loadComponent: () => import('./pages/signals/linked-signal-demo/linked-signal-demo').then((m) => m.LinkedSignalDemo)
-  }
+
+  // toujours EN DERNIER : n'importe quelle URL inconnue => retour à l'accueil
+  // (le routeur lit les routes de haut en bas et prend la PREMIÈRE qui correspond)
+  { path: '**', redirectTo: 'page-a' }
 ];

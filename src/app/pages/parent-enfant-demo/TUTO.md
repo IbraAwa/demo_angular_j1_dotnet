@@ -202,41 +202,44 @@ Dans `menu-item.scss` :
   max-width: 350px;
   padding: 20px;
   margin: 16px 0;
-  background-color: wheat;
-  border: 1px solid whitesmoke;
+  background-color: white;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
+  transition: box-shadow 0.2s ease;
 }
 
 .wrapper-plat:hover{
-  box-shadow: 0 11px 16px gray
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12)
 }
 
 .vegetarien {
-  padding: 5px;
+  padding: 4px 10px;
   border-radius: 12px;
-  background-color: green;
-  color: white;
+  background-color: #dcfce7;
+  color: #15803d;
 }
 
 .nonvegetarien {
-  padding: 5px;
+  padding: 4px 10px;
   border-radius: 12px;
-  background-color: red;
-  color: white;
+  background-color: #fee2e2;
+  color: #b91c1c;
 }
 
 .btn {
-  padding: 5px;
+  display: block;
+  margin-top: 16px;
+  padding: 6px 14px;
   background-color: black;
   border-radius: 12px;
   color: white;
 }
 ```
 
-- `.wrapper-plat` ➜ la card : fond beige (`wheat`), coins arrondis.
-- `.wrapper-plat:hover` ➜ une **ombre** apparaît quand la souris passe sur la card.
+- `.wrapper-plat` ➜ la card : fond blanc, fine bordure grise, coins arrondis.
+- `.wrapper-plat:hover` ➜ une **ombre** apparaît (en douceur grâce à `transition`) quand la souris passe sur la card.
 - `.vegetarien` / `.nonvegetarien` ➜ les 2 badges (vert / rouge) choisis par le `[className]` du HTML.
-- `.btn` ➜ le bouton « Commander » noir.
+- `.btn` ➜ le bouton « Commander » noir, `display: block` pour qu'il passe **sous** le badge.
 
 ---
 

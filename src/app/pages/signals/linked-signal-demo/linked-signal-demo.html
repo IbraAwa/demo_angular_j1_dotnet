@@ -1,11 +1,17 @@
-<h1>Catégorie : {{categorie()}}</h1>
-<button (click)="changerCategorieEnFruit()">Fruits</button>
-<button (click)="changerCategorieEnLegume()">Légumes</button>
+<h2>linkedSignal()</h2>
+<p class="intro">Choisis un produit puis change de catégorie : le choix revient automatiquement au premier produit de la liste.</p>
 
+<section class="card">
+  <h3>Catégorie : {{categorie()}}</h3>
+  <button (click)="changerCategorieEnFruit()">Fruits</button>
+  <button (click)="changerCategorieEnLegume()">Légumes</button>
+</section>
 
-<h3>Choisis un produit</h3>
-@for (produit of produits(); track $index) {
-  <button (click)="choisirProduit(produit)">{{produit}}</button>
-}
+<section class="card">
+  <h3>Choisis un produit</h3>
+  @for (produit of produits(); track $index) {
+    <button class="produit" [class.choisi]="produit === choix()" (click)="choisirProduit(produit)">{{produit}}</button>
+  }
 
-<h4>CHOIX : {{choix()}}</h4>
+  <p class="choix">CHOIX : <strong>{{choix()}}</strong></p>
+</section>

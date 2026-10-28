@@ -191,12 +191,12 @@ host: {
 import { ColorButton } from '../../directives/color-button';
 
 @Component({
-  imports: [DirectiveBonus, ColorButton],
+  imports: [ColorButton],
   ...
 })
 ```
 
-(`DirectiveBonus`, c'est le composant de l'exercice bonus affiché en bas de la page. Il n'a **rien à voir** avec la directive : si tu recrées juste la directive, tu n'as besoin que de `ColorButton` dans `imports`.)
+(L'exercice bonus `DirectiveBonus` n'est plus affiché en bas de cette page : il a maintenant **sa propre route** `/exo/directive`. Donc ici on n'a besoin que de `ColorButton` dans `imports`.)
 
 **Pourquoi ?** Comme pour les pipes : une directive n'est **pas** disponible automatiquement. Si tu oublies de la mettre dans `imports`, Angular voit l'attribut `appColorButton` comme un attribut HTML normal et **il ne se passe rien** (et en plus il ne te met même pas d'erreur, donc attention !).
 

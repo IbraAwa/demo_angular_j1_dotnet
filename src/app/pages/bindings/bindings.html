@@ -1,20 +1,34 @@
-<h2>{{ productName }}</h2>
-<img [src]="imageUrl" alt="Photo du produit" />
+<h2>Bindings</h2>
+<p class="intro">Les différentes façons de relier le TS et le HTML : <code ngNonBindable>&#123;&#123; &#125;&#125;</code>, <code>[ ]</code>, <code>( )</code> et <code>[( )]</code>.</p>
 
-<p>Stock : {{ stock() }}</p>
-<button (click)="restock(1)">+1</button>
-<button (click)="restock(10)">+10</button>
-<button [disabled]="stock() === 0">Commander</button>
-<p [class.epuise]="stock() === 0">Disponibilité</p>
-<div class="barre" [style.width.%]="stock() * 10"></div>
+<section class="card">
+  <h3>{{ productName }}</h3>
+  <img [src]="imageUrl" alt="Photo du produit" />
 
-<input type="number" [(ngModel)]="quantity" />
-<p>Total : {{ quantity() * 49.9 }}</p>
+  <p>Stock : {{ stock() }}</p>
+  <button (click)="restock(1)">+1</button>
+  <button (click)="restock(10)">+10</button>
+  <button [disabled]="stock() === 0">Commander</button>
+  <p [class.epuise]="stock() === 0">Disponibilité</p>
+  <div class="barre" [style.width.%]="stock() * 10"></div>
+</section>
 
-<input (keyup.enter)="onKey($event)" placeholder="Tapez puis Entrée" />
+<section class="card">
+  <h3>Two-way binding</h3>
+  <input type="number" [(ngModel)]="quantity" />
+  <p>Total : {{ quantity() * 49.9 }}</p>
+</section>
 
-<hr />
-<button (click)="startWrong()">Compteur propriété</button>
-<p>Propriété simple : {{ secondsWrong }}</p>
-<button (click)="startRight()">Compteur signal</button>
-<p>Signal : {{ secondsRight() }}</p>
+<section class="card">
+  <h3>Event binding</h3>
+  <input (keyup.enter)="onKey($event)" placeholder="Tapez puis Entrée" />
+  <p class="intro">Le texte s'affiche dans la console (F12).</p>
+</section>
+
+<section class="card">
+  <h3>Propriété simple VS signal</h3>
+  <button (click)="startWrong()">Compteur propriété</button>
+  <p>Propriété simple : {{ secondsWrong }}</p>
+  <button (click)="startRight()">Compteur signal</button>
+  <p>Signal : {{ secondsRight() }}</p>
+</section>

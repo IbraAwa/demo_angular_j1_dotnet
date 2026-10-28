@@ -1,13 +1,25 @@
+<!-- routerLinkActive="actif" => Angular ajoute la classe "actif" au lien quand son URL est la page en cours -->
+<!-- exact: true => sinon "/page-a" serait AUSSI actif sur "/page-a/detail" (car l'URL commence pareil) -->
 <nav>
-  <a routerLink="/page-a">Page A</a>
-  <a routerLink="/page-a/detail">Page A - détail</a>
-  <a routerLink="/page-b">Page B</a>
-  <a routerLink="/bindings">Bindings</a>
-  <a routerLink="/pipes">Pipes</a>
-  <a routerLink="/directives">Directives</a>
-  <a routerLink="/restaurant">Restaurant</a>
-  <a routerLink="/garage">Garage</a>
-  <a routerLink="/signal">Signal</a>
-  <a routerLink="/signal-computed">Signal computed</a>
-  <a routerLink="/linkedSignal">linked signal</a>
+  <p class="titre-section">Les bases</p>
+  <a routerLink="/page-a" routerLinkActive="actif" [routerLinkActiveOptions]="{ exact: true }">Page A</a>
+  <a class="sous-lien" routerLink="/page-a/detail" routerLinkActive="actif">Page A - détail</a>
+  <a routerLink="/page-b" routerLinkActive="actif">Page B</a>
+  <a routerLink="/bindings" routerLinkActive="actif">Bindings</a>
+  <a routerLink="/pipes" routerLinkActive="actif">Pipes</a>
+
+  <p class="titre-section">Directives</p>
+  <a routerLink="/directives" routerLinkActive="actif">Directives &amp; control flow</a>
+
+  <p class="titre-section">Parent / Enfant</p>
+  <a routerLink="/restaurant" routerLinkActive="actif">Restaurant</a>
+
+  <p class="titre-section">Signals</p>
+  <a routerLink="/signals/signal" routerLinkActive="actif">signal()</a>
+  <a routerLink="/signals/computed" routerLinkActive="actif">computed()</a>
+  <a routerLink="/signals/linked-signal" routerLinkActive="actif">linkedSignal()</a>
+
+  <p class="titre-section">Exercices</p>
+  <a routerLink="/exo/directive" routerLinkActive="actif">Liste de tâches (directives)</a>
+  <a routerLink="/exo/garage" routerLinkActive="actif">Garage (parent / enfant)</a>
 </nav>

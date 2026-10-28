@@ -1,1 +1,143 @@
-/* You can add global styles to this file, and also import other style files */
+/* Styles GLOBAUX : ils s'appliquent à TOUTE l'appli (pas d'encapsulation comme dans un composant) */
+/* Ici on met juste la base : couleurs, boutons, tableaux, inputs... */
+/* Chaque composant garde son propre .scss pour ce qui le concerne lui */
+
+:root {
+  --primary: #4f46e5;
+  --primary-light: #eef2ff;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --radius: 10px;
+  --shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0 0 10px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+
+code {
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.9em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* petit texte d'explication en haut de chaque page de démo */
+.intro {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* une "carte" blanche pour regrouper un bloc de démo */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* ----- Boutons ----- */
+button {
+  font: inherit;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+/* un peu d'espace entre deux boutons qui se suivent */
+button + button {
+  margin-left: 8px;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* ----- Champs de saisie ----- */
+input {
+  font: inherit;
+  padding: 8px 12px;
+  margin: 0 6px 10px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+input:focus {
+  outline: 2px solid var(--primary-light);
+  border-color: var(--primary);
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* ----- Tableaux ----- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+tbody tr:hover {
+  background: #f1f5f9;
+}

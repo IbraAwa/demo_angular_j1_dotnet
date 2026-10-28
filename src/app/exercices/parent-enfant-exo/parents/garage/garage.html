@@ -1,9 +1,11 @@
+<h2>Exercice : le garage</h2>
+<p class="intro">Clique sur « Commander » dans une carte (output), puis choisis la quantité avec le compteur (<code>model()</code> + <code>[( )]</code>).</p>
 
-<!-- Afficher mon enfant via son selecteur-->
+<!-- Afficher mon enfant via son sélecteur-->
 <!-- DANS LE CAS DE INPUT/OUTPUT donc de PARENT/ENFANT-->
-<!--Crocher [] j'envoie une valeur a mon enfant qui est dynamique-->
-<!--Crocher [] envoie a lenfant-->
-<!--Crocher [] peut recevoir une valuer dynamique-->
+<!--Crochets [] : j'envoie une valeur dynamique à mon enfant-->
+<!--Crochets [] : envoie à l'enfant-->
+<!--Crochets [] : peut recevoir une valeur dynamique-->
 <!--<app-voiture-item [voiture]="voitures()[3]"/>-->
 
 <section class="garage">
@@ -12,12 +14,12 @@
 }
 </section>
 
-<h1>la voiture commander</h1>
+<h1>La voiture commandée</h1>
 <h3>{{voitureCommander()?.marque}}</h3>
 @if (voitureCommander()?.isLuxe === true && voitureCommander()?.isLuxe !== undefined){
   <p>Luxueux</p>
 } @else {
-  <p>Standar</p>
+  <p>Standard</p>
 }
 
 <!-- SUITE : le compteur -->

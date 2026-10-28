@@ -1,9 +1,13 @@
+<h2>signal()</h2>
+<p class="intro">Ajoute un élève : le <code>computed</code> se met à jour tout seul, la variable « figée » non.</p>
 
-<label>Rajouter un nouveau eleve</label>
-<input type="text" [(ngModel)]="nouveauEleve">
-<button (click)="AjouterEleve()">Ajouter élève</button>
+<section class="card">
+  <label>Rajouter un nouvel élève</label>
+  <input type="text" [(ngModel)]="nouveauEleve">
+  <button (click)="AjouterEleve()">Ajouter élève</button>
+</section>
 
-
-<p>le nombre d'élèves est de {{nombreEleves()}}</p>
-<br/>
-<p>le nombre d'élèves sans abonné au signal : {{nombreElevesSansComputed}}</p>
+<section class="card">
+  <p>Le nombre d'élèves est de <strong>{{nombreEleves()}}</strong></p>
+  <p>Le nombre d'élèves sans abonnement au signal : <strong>{{nombreElevesSansComputed}}</strong></p>
+</section>

@@ -292,6 +292,45 @@ Dans `sidebar.html` :
 
 Le `/` au début ➜ chemin **absolu** : « depuis la racine de l'appli ».
 
+### 💡 Bonus : regrouper des routes + montrer la page active
+
+Quand l'appli grossit, on **range** les routes par thème. Dans `app.routes.ts`, les signals et les exercices sont regroupés :
+
+```ts
+{
+  path: 'signals',
+  children: [
+    { path: '', redirectTo: 'signal', pathMatch: 'full' },
+    { path: 'signal', loadComponent: () => import('./pages/signals/signal-demo/signal-demo').then((m) => m.SignalDemo) },
+    { path: 'computed', loadComponent: () => import('./pages/signals/computed-demo/computed-demo').then((m) => m.ComputedDemo) },
+    { path: 'linked-signal', loadComponent: () => import('./pages/signals/linked-signal-demo/linked-signal-demo').then((m) => m.LinkedSignalDemo) },
+  ]
+},
+```
+
+- Une route parent **sans composant** ➜ elle sert juste à mettre un **préfixe** dans l'URL : `/signals/signal`, `/signals/computed`…
+- Pas de composant parent ➜ pas besoin d'un 2e `<router-outlet />` : les enfants s'affichent **directement** dans celui de `app.html`. (Différence avec la page A : là, `PageA` **est** un composant, donc il lui faut **son** trou pour afficher `Detail`.)
+- `{ path: '', redirectTo: 'signal', ... }` ➜ si on tape juste `/signals`, on part sur le premier enfant.
+- Même principe pour les exercices : `/exo/directive` et `/exo/garage`.
+
+Et tout en bas, la route « attrape-tout » :
+
+```ts
+{ path: '**', redirectTo: 'page-a' }
+```
+
+`**` = **n'importe quelle URL**. Le routeur lit les routes **de haut en bas** et prend la **première** qui correspond : cette ligne doit donc être **la dernière**, sinon elle attraperait tout.
+
+Dans la sidebar, on ajoute `RouterLinkActive` dans `imports` pour **surligner** la page en cours :
+
+```html
+<a routerLink="/page-a" routerLinkActive="actif" [routerLinkActiveOptions]="{ exact: true }">Page A</a>
+<a routerLink="/signals/computed" routerLinkActive="actif">computed()</a>
+```
+
+- `routerLinkActive="actif"` ➜ Angular ajoute la classe CSS `actif` au lien quand on est sur sa page (le style est dans `sidebar.scss`).
+- `{ exact: true }` ➜ sans ça, « Page A » resterait **aussi** surligné sur `/page-a/detail`, car l'URL commence pareil.
+
 ---
 
 ## PARTIE 4 : le cycle de vie (`ngOnInit` / `ngOnDestroy`)
@@ -343,6 +382,9 @@ export class PageA implements OnInit, OnDestroy {
 | rediriger l'URL vide | `{ path: '', redirectTo: 'xxx', pathMatch: 'full' }` |
 | l'endroit où la page s'affiche | `<router-outlet />` + `RouterOutlet` dans `imports` |
 | un lien sans recharger | `<a routerLink="/xxx">` + `RouterLink` dans `imports` |
+| regrouper des routes sous un préfixe | `{ path: 'xxx', children: [...] }` (sans composant) |
+| attraper les URLs inconnues | `{ path: '**', redirectTo: 'xxx' }` **en dernier** |
+| surligner le lien de la page en cours | `routerLinkActive="actif"` + `RouterLinkActive` dans `imports` |
 | du code quand la page s'ouvre / se ferme | `ngOnInit()` / `ngOnDestroy()` |
 
 ➡️ La version courte est dans [SYNTHESE.md](SYNTHESE.md)

@@ -1,13 +1,15 @@
-<p>computed-demo works!</p>
+<h2>computed()</h2>
+<p class="intro">Change la quantité : le total et la livraison se recalculent tout seuls (livraison gratuite dès 50).</p>
 
+<section class="card">
+  <p class="calcul">{{prix()}} x {{quantite()}} = <strong>{{total()}}</strong></p>
 
-<p>{{this.prix()}} X {{this.quantite()}} = {{total()}}</p>
+  <button (click)="augmenter()">Augmenter +</button>
+  <button (click)="diminuer()">Diminuer -</button>
+</section>
 
-<button (click)="augmenter()">Augmenter +</button>
-<button (click)="diminuer()">Diminuer -</button>
-
-
-<p>Livraison </p>
-<br>
-<p>{{EstLivraisonGratuite()}}</p>
-<p>{{livraisonGratuite()}}</p>
+<section class="card">
+  <h3>Livraison</h3>
+  <p>EstLivraisonGratuite() : <code>{{EstLivraisonGratuite()}}</code></p>
+  <p>livraisonGratuite() : <strong>{{livraisonGratuite()}}</strong></p>
+</section>

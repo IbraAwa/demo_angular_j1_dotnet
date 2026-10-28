@@ -57,20 +57,8 @@ article span {
   letter-spacing: 0.5px;
 }
 
-/* ASTUCE POUR LE BADGE EN FONCTION DU TEXTE :
-   En utilisant :has(), la couleur s'adapte automatiquement au contenu du span */
-
-/* Badge Luxe */
-article span:has(:nth-child(1)), /* fallback */
-article:has(span:contains("Luxe")) span,
-article span {
-  /* Style par défaut ou Standard */
-  background-color: #e2e8f0;
-  color: #475569;
-}
-
-/* Style spécifique si vous ajoutez une classe ou avec ngClass/class binding dans Angular/Vue :
-   Exemple HTML recommandé : <span [class.luxe]="voiture().isLuxe" [class.standard]="!voiture().isLuxe">
+/* La couleur du badge est choisie par le class binding dans le HTML :
+   <span [class.luxe]="voiture().isLuxe" [class.standard]="!voiture().isLuxe">
 */
 
 .badge-luxe,

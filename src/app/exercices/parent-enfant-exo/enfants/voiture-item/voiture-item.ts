@@ -19,7 +19,7 @@ export class VoitureItem {
   voitureCommander = output<Voiture>();
 
   // coder la logique qui va utiliser l'output avec emit()
-  // pour envoyer un event après une action utlisateur
+  // pour envoyer un event après une action utilisateur
   Commander(voiture : Voiture) {
     console.log(`enfant veut envoyer au papa ${voiture.marque}`)
     this.voitureCommander.emit(voiture);

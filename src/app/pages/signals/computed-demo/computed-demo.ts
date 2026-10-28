@@ -7,19 +7,19 @@ import { Component, computed, signal } from '@angular/core';
   templateUrl: './computed-demo.html',
 })
 
-// un computed à des valeur calculé
-// mais qui ne peut être changer a la main via un set ou un update
+// un computed a une valeur calculée
+// mais qui ne peut pas être changée à la main via un set ou un update
 export class ComputedDemo {
   prix = signal<number>(10)
   quantite = signal<number>(1)
 
   // computed permet de recalculer à chaque fois que l'un des signaux change
-  // si signal en number ou string c'est via sa valeur si c'est un arra c'est via sa ref
-  // si le prix change computed est re appeler et réassigne une nouvel valeur a total
-  // si la quantité change computed est re appeler et réassigne une nouvel valeur a total
-  // si les deux change même chose
-  // en mettant le signal dans la parenthese de computed(...) tu abonnes computed
-  // automatiquement au signal dans notre cas prix et quantité
+  // si le signal est un number ou un string c'est via sa valeur, si c'est un array c'est via sa référence
+  // si le prix change, computed est rappelé et réassigne une nouvelle valeur à total
+  // si la quantité change, computed est rappelé et réassigne une nouvelle valeur à total
+  // si les deux changent, même chose
+  // en LISANT le signal (this.prix()) dans la fonction de computed(...) tu abonnes computed
+  // automatiquement à ce signal, dans notre cas prix et quantité
   total = computed(() => this.prix() * this.quantite())
   // this.prix() * this.quantite() renvoie un nombre
   // automatiquement le computed va mettre notre variable avec le type qu'il renvoie
@@ -32,9 +32,9 @@ export class ComputedDemo {
 
 
   // computed va mettre notre "livraisonGratuite" en string car
-  // car vérifie si total est supérieur ou égale a 50
-  // et à un comportement selon le boolean il renvoie un string
-  // livraison gratutie ou un string livraison payante
+  // il vérifie si total est supérieur ou égal à 50
+  // et selon le boolean il renvoie un string
+  // "Livraison gratuite" ou un string "Livraison payante"
   // donc computed va mettre notre variable de type string
   livraisonGratuite = computed(() =>  this.total() >= 50 ? "Livraison gratuite" : "Livraison payante")
 

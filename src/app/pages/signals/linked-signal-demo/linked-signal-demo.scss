@@ -1,0 +1,16 @@
+.produit {
+  background: white;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* le produit actuellement choisi */
+.produit.choisi {
+  background: var(--primary);
+  color: white;
+}
+
+.choix {
+  margin-top: 16px;
+  font-size: 1.1rem;
+}
