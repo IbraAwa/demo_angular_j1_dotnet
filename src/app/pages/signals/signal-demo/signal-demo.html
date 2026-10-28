@@ -1,0 +1,9 @@
+
+<label>Rajouter un nouveau eleve</label>
+<input type="text" [(ngModel)]="nouveauEleve">
+<button (click)="AjouterEleve()">Ajouter élève</button>
+
+
+<p>le nombre d'élèves est de {{nombreEleves()}}</p>
+<br/>
+<p>le nombre d'élèves sans abonné au signal : {{nombreElevesSansComputed}}</p>

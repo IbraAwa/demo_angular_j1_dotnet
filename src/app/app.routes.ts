@@ -33,5 +33,13 @@ export const routes: Routes = [
   {
     path: 'garage',
     loadComponent: () => import('./exercices/parent-enfant-exo/parents/garage/garage').then((m) => m.Garage)
+  },
+  {
+    path: 'signal',
+    loadComponent: () => import('./pages/signals/signal-demo/signal-demo').then((m) => m.SignalDemo),
+  },
+  {
+    path: 'signal-computed',
+    loadComponent: () => import('./pages/signals/computed-demo/computed-demo').then((m) => m.ComputedDemo)
   }
 ];
