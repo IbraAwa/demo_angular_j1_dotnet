@@ -1,0 +1,51 @@
+/* chaque component enfant appelé avec class="card" devient un carré séparé */
+/* ex : <app-login-form class="card" /> */
+/* la balise d'un component (<app-...>) est "inline" par défaut : sans display: block la carte s'écrase */
+.card {
+  display: block;
+  margin-bottom: 24px;
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover {
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+/* le bandeau garde son style, sans l'effet de survol */
+.legacy:hover {
+  box-shadow: var(--shadow);
+  transform: none;
+}
+
+/* bandeau "ancienne méthode" : bordure orange à gauche pour attirer l'oeil */
+.legacy {
+  border-left: 5px solid #f59e0b;
+  background: linear-gradient(90deg, #fffbeb, var(--surface) 60%);
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.highlight {
+  color: #b45309;
+}
+
+.conseil {
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 500;
+}

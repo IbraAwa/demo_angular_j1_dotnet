@@ -1,0 +1,33 @@
+<section class="demo">
+  <h2>FORMULAIRE : NGMODEL</h2>
+
+  <div class="layout">
+    <!-- à gauche : la pratique -->
+    <div class="pratique">
+      <!--#monForm='ngForm' => variable de la template qui donne accès à l'état de notre formulaire-->
+      <!--etat du formulaire = invalide, toucher, dirty etc...-->
+      <form #monForm="ngForm">
+        <label>
+          Nom
+          <input name="nom" [(ngModel)]="nom" required>
+        </label>
+
+        <label>
+          Email
+          <input type="email" name="email" [(ngModel)]="email" required email>
+        </label>
+
+        <button type="submit" [disabled]="monForm.invalid">Envoyer</button>
+      </form>
+
+      <p>Formulaire valide ? {{monForm.valid}}</p>
+    </div>
+
+    <!-- à droite : l'explication -->
+    <aside class="explication">
+      <p>📋 <code>#monForm="ngForm"</code> donne l'<strong>état du form</strong> : <code>valid</code>, <code>touched</code>, <code>dirty</code>…</p>
+      <p>🏷️ <code>name</code> est <strong>obligatoire</strong> : il enregistre le champ dans le form.</p>
+      <p>✅ <code>required</code> et <code>email</code> sont des <strong>validateurs</strong> mis directement dans le HTML.</p>
+    </aside>
+  </div>
+</section>

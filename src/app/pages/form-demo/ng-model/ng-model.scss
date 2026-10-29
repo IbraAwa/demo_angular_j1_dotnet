@@ -1,0 +1,30 @@
+/* 2 colonnes : la pratique à gauche, l'explication à droite */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* sur petit écran on repasse en 1 colonne */
+@media (max-width: 700px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.explication {
+  padding: 14px 16px;
+  border-left: 4px solid var(--primary);
+  border-radius: 8px;
+  background: var(--primary-light);
+  font-size: 0.9rem;
+
+  p {
+    margin: 0 0 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -9,6 +9,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/service-injection-demo/shopping-list/shopping-list').then((m) => m.ShoppingList)
   },
   {
+    path: 'reactiveForm',
+    loadComponent: () => import('./pages/form-demo/reactive-form-demo/reactive-form-demo').then((m) => m.ReactiveFormDemo)
+  },
+  {
     path: 'page-a',
     loadChildren: () =>
       import('./pages/page-a/page-a.routes').then((m) => m.PAGE_A_ROUTES),
