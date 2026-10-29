@@ -1,0 +1,12 @@
+@for (produit of produits(); track $index) {
+  <br>
+  <p>{{produit}}</p>
+  <button (click)="AjouterAuPanier(produit)">Ajouter au panier</button>
+  <br>
+}
+
+<h3>AU PANIER ON A:</h3>
+
+@for (item of panierService.articles(); track $index) {
+  <p>{{item}}</p>
+}

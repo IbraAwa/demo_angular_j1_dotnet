@@ -5,6 +5,10 @@ export const routes: Routes = [
 
   // ----- LES BASES -----
   {
+    path: 'shoppingList',
+    loadComponent: () => import('./pages/service-injection-demo/shopping-list/shopping-list').then((m) => m.ShoppingList)
+  },
+  {
     path: 'page-a',
     loadChildren: () =>
       import('./pages/page-a/page-a.routes').then((m) => m.PAGE_A_ROUTES),
@@ -75,5 +79,5 @@ export const routes: Routes = [
 
   // toujours EN DERNIER : n'importe quelle URL inconnue => retour à l'accueil
   // (le routeur lit les routes de haut en bas et prend la PREMIÈRE qui correspond)
-  { path: '**', redirectTo: 'page-a' }
+  { path: '**', redirectTo: 'page-a' },
 ];
