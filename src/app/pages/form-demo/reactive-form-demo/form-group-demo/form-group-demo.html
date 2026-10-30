@@ -4,11 +4,11 @@
   <form [formGroup]="formulaire" (ngSubmit)="envoyer()">
     <label>
       nom
-      <!--formControlName="nom" le "nom" est le clée pour accédé a la valeur-->
+      <!--formControlName="nom" le "nom" est la clé pour accéder à la valeur-->
       <input type="text" formControlName="nom">
     </label>
     <label>
-      age
+      âge
       <!--type number important sinon il nous renvoie un string '50'-->
       <input type="number" formControlName="age">
     </label>
@@ -18,13 +18,15 @@
         <input type="text" formControlName="rue">
       </label>
       <label>
-        Numero
+        Numéro
         <input type="number" formControlName="numero">
       </label>
     </div>
     <button type="submit"Envoyer>Envoyer</button>
 
   </form>
-      <p>formulaire est valide ? {{formulaire.valid}}</p>
-      <p>Sous formulaire adress est valid ? {{formulaire.controls.adress.valid}}</p>
+      <p>Le formulaire est valide ? {{formulaire.valid}}</p>
+      <p>Le sous-formulaire adresse est valide ? {{formulaire.controls.adress.valid}}</p>
+      <!--le DTO créé à l'envoi, celui qu'on donnerait au service-->
+      <pre>{{ dto() | json }}</pre>
 </section>
