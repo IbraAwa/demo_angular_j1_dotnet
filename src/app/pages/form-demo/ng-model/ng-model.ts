@@ -1,8 +1,9 @@
+import { JsonPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  imports: [FormsModule],
+  imports: [FormsModule, JsonPipe],
   selector: 'app-ng-model',
   styleUrl: './ng-model.scss',
   templateUrl: './ng-model.html',
@@ -10,4 +11,13 @@ import { FormsModule } from '@angular/forms';
 export class NgModel {
   nom = signal<string>('')
   email = signal<string>('')
+
+  setValue(nomParam : string) : void {
+    this.nom.set(nomParam)
+  }
+
+  envoyer() : void {
+    console.log("salut")
+  }
 }
+

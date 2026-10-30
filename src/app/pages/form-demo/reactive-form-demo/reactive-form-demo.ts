@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NgModel } from '../ng-model/ng-model';
+import { FormControl } from '@angular/forms';
+import { FormControlDemo } from './form-control-demo/form-control-demo';
 
 @Component({
   imports: [NgModel],

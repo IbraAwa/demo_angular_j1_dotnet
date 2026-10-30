@@ -6,21 +6,27 @@
     <div class="pratique">
       <!--#monForm='ngForm' => variable de la template qui donne accès à l'état de notre formulaire-->
       <!--etat du formulaire = invalide, toucher, dirty etc...-->
-      <form #monForm="ngForm">
+      <form #monForm="ngForm" (ngSubmit)="envoyer()">
         <label>
           Nom
-          <input name="nom" [(ngModel)]="nom" required>
+          <input type="text" name="nom" [(ngModel)]="nom" required>
         </label>
+        <button (click)="setValue('Robert')">Set Value</button>
 
         <label>
-          Email
+          email
           <input type="email" name="email" [(ngModel)]="email" required email>
         </label>
 
-        <button type="submit" [disabled]="monForm.invalid">Envoyer</button>
+        <button type="submit" [disabled]="monForm.invalid">envoyer</button>
       </form>
 
-      <p>Formulaire valide ? {{monForm.valid}}</p>
+      <article>
+        <h3>ETAT du form</h3>
+        <p>est-ce que mon formulaire est valid : {{monForm.valid}}</p>
+        <p>Mon erreur : {{monForm.control.errors | json}}</p>
+      </article>
+
     </div>
 
     <!-- à droite : l'explication -->
