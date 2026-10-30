@@ -1,0 +1,31 @@
+<section class="demo">
+  <h2>FORM CONTROL</h2>
+  <form (ngSubmit)="envoyer()">
+    <label>
+      nom
+      <input [formControl]="nom">
+    </label>
+
+    <label>
+      age
+      <input [formControl]="age">
+    </label>
+
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <ul>
+    <li>VALUE {{nom.value}}</li>
+    <li>input a ete cliquer et decliquer {{nom.touched}}</li>
+    <li>input a ete rempli au moin une fois dirty {{nom.dirty}}</li>
+    <li>ERRORS : {{nom.errors | json}}</li>
+  </ul>
+
+  <ul>
+    <li>VALUE {{age.value}}</li>
+    <li>input a ete cliquer et decliquer : {{age.touched}}</li>
+    <li>input a ete rempli au moin une fois dirty {{age.dirty}}</li>
+    <li>ERRORS : {{age.errors | json }}</li>
+  </ul>
+
+  </section>
