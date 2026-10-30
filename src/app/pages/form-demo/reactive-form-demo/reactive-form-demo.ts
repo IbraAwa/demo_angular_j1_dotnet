@@ -3,9 +3,10 @@ import { NgModel } from '../ng-model/ng-model';
 import { FormControlDemo } from './form-control-demo/form-control-demo';
 import { FormGroupDemo } from './form-group-demo/form-group-demo';
 import { FormArrayDemo } from './form-array-demo/form-array-demo';
+import { FormValidatorDemo } from './form-validator-demo/form-validator-demo';
 
 @Component({
-  imports: [NgModel, FormControlDemo, FormGroupDemo, FormArrayDemo],
+  imports: [NgModel, FormControlDemo, FormGroupDemo, FormArrayDemo, FormValidatorDemo],
   selector: 'app-reactive-form-demo',
   styleUrl: './reactive-form-demo.scss',
   templateUrl: './reactive-form-demo.html',

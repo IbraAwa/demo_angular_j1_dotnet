@@ -1,0 +1,25 @@
+<form [formGroup]="formulaire">
+  <label>
+    Mot de passe :
+    <input type="text" formControlName="mdp">
+  </label>
+
+  @if(formulaire.controls.mdp.dirty) {
+    @if(formulaire.controls.mdp.hasError('minLength')) {
+      <p>ERROR : 4 caractère minimum</p>
+    }
+
+    @if(formulaire.controls.mdp.hasError('majuscule')) {
+      <p>ERROR : Au moin une majuscule</p>
+    }
+  }
+
+  <label>
+    Confirmer mot de passe
+    <input type="text" formControlName="confirmer">
+  </label>
+
+  @if(formulaire.hasError("differents")) {
+    <p>Salut c tony</p>
+  }
+<form>

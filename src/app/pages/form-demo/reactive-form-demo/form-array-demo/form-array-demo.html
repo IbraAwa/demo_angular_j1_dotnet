@@ -10,9 +10,9 @@
   </label>
   <!--Exactement comm formControlName on a une key contenu par formulaire-->
   <fieldset formArrayName="telephones">
-    @for (telephone of telephones.value; track $index) {
+    @for (telephone of telephones.controls; track telephone) {
       <input [formControlName]="$index">
-      <button (click)="RetirerInputTelephone($index)">-</button>
+      <button type="button" (click)="RetirerInputTelephone($index)">-</button>
       <br>
     }
   </fieldset>
