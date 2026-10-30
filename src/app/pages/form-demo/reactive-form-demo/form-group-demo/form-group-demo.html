@@ -1,0 +1,30 @@
+<p>form-group-demo works!</p>
+<section class="demo">
+  <h1>FORM GROUP</h1>
+  <form [formGroup]="formulaire" (ngSubmit)="envoyer()">
+    <label>
+      nom
+      <!--formControlName="nom" le "nom" est le clée pour accédé a la valeur-->
+      <input type="text" formControlName="nom">
+    </label>
+    <label>
+      age
+      <!--type number important sinon il nous renvoie un string '50'-->
+      <input type="number" formControlName="age">
+    </label>
+    <div formGroupName="adress">
+      <label>
+        Rue
+        <input type="text" formControlName="rue">
+      </label>
+      <label>
+        Numero
+        <input type="number" formControlName="numero">
+      </label>
+    </div>
+    <button type="submit"Envoyer>Envoyer</button>
+
+  </form>
+      <p>formulaire est valide ? {{formulaire.valid}}</p>
+      <p>Sous formulaire adress est valid ? {{formulaire.controls.adress.valid}}</p>
+</section>
